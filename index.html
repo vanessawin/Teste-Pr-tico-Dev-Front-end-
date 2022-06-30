@@ -2,63 +2,161 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Front-End”</title>
-    <!-- css -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Front-End”</title>
+  <!-- css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- Barra de navegação -->
-    <nav>
-        <div><img src="/img/site-logo-corebiz-preto-cinza.png" alt="Logo Corebiz"> </div>
-        <div id="barraDePesquisa">
-            <p>O que está procurando? </p>
-            <img id="lupa" src="/img/svg/lupa.svg" alt="barra de pesquisa">
-        </div>
-        <div id="usuario">
-            <p><img src="/img/svg/user.svg" alt="Usuário"> Minha Conta</p>
-        </div>
-        <div id="carrinhoDeCompra">
-            <img src="/img/svg/carrinhoDeCompra.svg" alt="carrinho de compra">
-            <p id="quantidadeDeItens">1</p>
-        </div>
-    </nav>
+  <!-- Barra de navegação -->
+  <nav>
+    <div><img src="/img/site-logo-corebiz-preto-cinza.png" alt="Logo Corebiz"> </div>
+    <div id="barraDePesquisa">
+      <p>O que está procurando? </p>
+      <img id="lupa" src="/img/svg/lupa.svg" alt="barra de pesquisa">
+    </div>
+    <div id="usuario">
+      <p><img src="/img/svg/user.svg" alt="Usuário"> Minha Conta</p>
+    </div>
+    <div id="carrinhoDeCompra">
+      <img src="/img/svg/carrinhoDeCompra.svg" alt="carrinho de compra">
+      <p id="quantidadeDeItens">1</p>
+    </div>
+  </nav>
 
-    
-<div class="slideshow-container">
+  <!-- Banner -->
+  <div class="slideshow-container">
+    <div id="exe" class="mySlides fade">
+      <div id="texte">
+        <h1>Olá, o que você está buscando?</h1>
+        <h2>Criar ou migrar seu e-commerce?</h2>
+      </div>
+    </div>
+    <div id="exe" class="mySlides fade">
+      <div id="texte1">
+        <h1>Olá, o que você está buscando?</h1>
+        <h2>Criar ou migrar seu e-commerce?</h2>
+      </div>
+    </div>
+    <div id="exe" class="mySlides fade">
+      <div id="texte2">
+        <h1>Olá, o que você está buscando?</h1>
+        <h2>Criar ou migrar seu e-commerce?</h2>
+      </div>
+    </div>
+    <div id="exe" class="mySlides fade">
+      <div id="texte3">
+        <h1>Olá, o que você está buscando?</h1>
+        <h2>Criar ou migrar seu e-commerce?</h2>
+      </div>
+    </div>
+  </div>
 
-    <div class="mySlides fade">
-        <img src="/img/image 2.png">
+  <div id="bolinhas">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  </div>
+
+
+  <!-- Card Produtos -->
+  <main id="produtos">
+
+    <div id="maisVendidos">
+      <h1>Mais Vendidos</h1>
+      <!-- traço -->
+      <p></p>
     </div>
-    <div class="mySlides fade">
-      <img src="/img/image 2.png">
+
+    <div id="conteiner">
+      <div class="card" id="card" onmouseenter="bigImg(this)" >
+        <div id="imagemDoProduto">
+          <img class="imagemDoProduto" src="https://corebiz-test.herokuapp.com/images/product-1.png" alt="sapato">
+        </div>
+        <div class="sobreOProduto">
+          <p class="nomeDoProduto">NOME DO PRODUTO</p>
+          <div class="estrelas">
+            <img src="/img/svg/starV.svg" alt="star">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+          </div>
+          <p id="preco" class="preco">por R$ 259,90</p>
+          <p id="parcelado" class="parcelado">ou em 9x de R$ 28,87</p>
+          <button id="btn" class="btn">Comprar</button>
+        </div>
+      </div>
+      <div class="card" id="card">
+        <div id="imagemDoProduto">
+          <img class="imagemDoProduto" src="https://corebiz-test.herokuapp.com/images/product-1.png" alt="sapato">
+        </div>
+        <div class="sobreOProduto">
+          <p class="nomeDoProduto">NOME DO PRODUTO</p>
+          <div class="estrelas">
+            <img src="/img/svg/starV.svg" alt="star">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+          </div>
+          <p id="preco" class="preco">por R$ 259,90</p>
+          <p id="parcelado" class="parcelado">ou em 9x de R$ 28,87</p>
+          <button id="btn" class="btn">Comprar</button>
+        </div>
+      </div>
+      <div class="card" id="card">
+        <div id="imagemDoProduto">
+          <img class="imagemDoProduto" src="https://corebiz-test.herokuapp.com/images/product-1.png" alt="sapato">
+        </div>
+        <div class="sobreOProduto">
+          <p class="nomeDoProduto">NOME DO PRODUTO</p>
+          <div class="estrelas">
+            <img src="/img/svg/starV.svg" alt="star">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+            <img src="/img/svg/starB.svg" alt="">
+          </div>
+          <p id="preco" class="preco">por R$ 259,90</p>
+          <p id="parcelado" class="parcelado">ou em 9x de R$ 28,87</p>
+          <button id="btn" class="btn">Comprar</button>
+        </div>
+      </div>
+      <div class="card" id="card">
+        <div id="imagemDoProduto">
+          <img class="imagemDoProduto" src="https://corebiz-test.herokuapp.com/images/product-1.png" alt="sapato">
+        </div>
+        <div class="sobreOProduto">
+          <p class="nomeDoProduto">NOME DO PRODUTO</p>
+          <div class="estrelas">
+            <img class="star" src="/img/svg/starV.svg" alt="star">
+            <img class="star" src="/img/svg/starB.svg" alt="">
+            <img class="star" src="/img/svg/starB.svg" alt="">
+            <img class="star" src="/img/svg/starB.svg" alt="">
+            <img class="star" src="/img/svg/starB.svg" alt="">
+          </div>
+          <p id="preco" class="preco">por R$ 259,90</p>
+          <p id="parcelado" class="parcelado">ou em 9x de R$ 28,87</p>
+          <button id="btn"class="btn">Comprar</button>
+        </div>
+      </div>
     </div>
-    <div class="mySlides fade">
-      <img src="/img/image 2.png">
-    </div>
-    <div class="mySlides fade">
-      <img src="/img/image 2.png">
-    </div>
-    
-    </div>
-    <br>
-    
-    <div style="text-align:center">
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span>
-    </div>
-    
-        <script src="app.js"></script>
+  </main>
+
+
+
+  <script src="app.js"></script>
 
 </body>
 

@@ -81,30 +81,35 @@ nav #carrinhoDeCompra p {
 /* banner */
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
     position: relative;
+    border: solid black 2px;
+    width: 100%;
     margin: auto;
 
 }
 
- .mySlides {
+.mySlides {
     display: none
-
-} 
+}
 
 /* The dots/bullets/indicators */
 .dot {
     height: 15px;
     width: 15px;
-    margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
+#bolinhas {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 50%;
+}
+
 .active {
-    background-color: #717171;
+    background-color: #F8475F;
 }
 
 /* Fading animation */
@@ -121,4 +126,205 @@ nav #carrinhoDeCompra p {
     to {
         opacity: 1
     }
+}
+
+#exe {
+    width: 100%;
+    height: 400px;
+    border: solid 2px black;
+    width: 100%;
+    height: 400px;
+    background-image: url("/img/Banner.png"), url("/img/image2.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left, right;
+    background-size: 54% 100%, 54% 100%;
+
+}
+
+#texte,
+#texte1,
+#texte2,
+#texte3 {
+    margin-left: 10%;
+    max-width: 522px;
+    height: 127px;
+    margin-top: 8%;
+}
+
+#texte h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    color: #FFFFFF;
+
+}
+
+#texte h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 45px;
+    color: #FFFFFF;
+
+}
+
+#texte1 h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    color: #7ce40d;
+}
+
+#texte1 h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 45px;
+    color: #7ce40d;
+}
+
+#texte2 h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    color: #0de4cb;
+}
+
+#texte2 h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 45px;
+    color: #0de4cb;
+}
+
+#texte3 h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    color: #b42525;
+}
+
+#texte3 h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 45px;
+    color: #b42525;
+}
+
+/* Card Podutos */
+#produtos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    border: solid black 1px;
+}
+
+#maisVendidos {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    max-width: 250px;
+}
+
+#maisVendidos h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+}
+
+#maisVendidos p {
+    max-width: 38%;
+    border-bottom: solid #7A7A7A 2px;
+    border-width: 3px;
+}
+
+#conteiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    width: 216px;
+    height: 353px;
+}
+.card:hover {
+    background-color: #E6E8EA;
+}
+
+.card .imagemDoProduto {
+    border: solid 1px rgb(8, 58, 123);
+    width: 100%;
+}
+
+.sobreOProduto {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 216px;
+    height: 153px;
+
+}
+
+.nomeDoProduto {
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7A7A7A;
+}
+
+.estrelas {
+    margin-bottom: 15px;
+}
+
+.preco {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+    
+}
+
+.parcelado {
+    font-family: 'Nunito';
+font-weight: 400;
+font-size: 11px;
+line-height: 15px;
+color: #7A7A7A;
+margin-bottom: 10px;
+}
+
+.btn {
+width: 125.28px;
+height: 32.42px;
+left: 425px;
+top: 896.17px;
+
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 16px;
+
+color: #FFFFFF;
+background: #000000;
+border-radius: 5px;
+}
+.btn {
+    display: none;
 }
