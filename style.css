@@ -328,8 +328,10 @@ nav #carrinhoDeCompra p {
     border-radius: 5px;
 }
 
-.btn {
-    display: none;
+.btn:hover {
+    background-color: #0a4c4c;
+    color: #0a0a0a;
+    cursor: pointer;
 }
 
 /* formulario */
