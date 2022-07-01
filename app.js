@@ -2,8 +2,6 @@
 // let slideIndex = 0;
 // showSlides();
 
-const { url } = require("is_js")
-
 // function showSlides() {
 //   let i;
 //   let slides = document.getElementsByClassName("mySlides");
@@ -22,7 +20,74 @@ const { url } = require("is_js")
 // }
 
 // Get produtos
+const url = "https://corebiz-test.herokuapp.com/api/v1/products"
 
-// const url = "https://corebiz-test.herokuapp.com/api/v1/products"
+const produto = document.querySelector("#conteiner")
 
-console.log("ola")
+async function getProdutos() {
+    const response = await fetch(url)
+
+    console.log(response);
+
+    const data = await response.json()
+
+    console.log(data)
+    //passar por cada elemento que veio da minha requisição
+    data.map((post) => {
+
+        const divCard = document.createElement("div");
+        const divImagemDoProduto = document.createElement("div");
+        const img = document.createElement("img");
+        const divSobreOProduto = document.createElement("div");
+        const pnomeDoProduto = document.createElement("p");
+        const divEstrelas = document.createElement("div");
+        const imgEstrelas = document.createElement("img");
+        const ppreco = document.createElement("p");
+        const pparcelado = document.createElement("p");
+        const botao = document.createElement("button");
+
+        divCard.setAttribute("class", "card");
+        divCard.setAttribute("id", "card");
+
+        divImagemDoProduto.setAttribute("id", "imagemDoProduto");
+
+        img.setAttribute("class", "imagemDoProduto");
+        img.setAttribute("src", post.imageUrl);
+
+        divSobreOProduto.setAttribute("class", "sobreOProduto");
+
+        pnomeDoProduto.setAttribute("class", "nomeDoProduto");
+        pnomeDoProduto.innerText = post.productName;
+
+        divEstrelas.setAttribute("class", "estrelas");
+
+        imgEstrelas.setAttribute = ("id", post.stars)
+        ppreco.setAttribute("id", "preco");
+        ppreco.setAttribute("class", "preco");
+        ppreco.innerText = `por R$ ${post.price}`,
+
+            pparcelado.setAttribute("id", "parcelado");
+        pparcelado.setAttribute("class", "parcelado");
+        pparcelado.innerText = `ou em ${post.installments.quantity}x de R$ ${post.installments.value}`;
+
+        botao.setAttribute("id", "btn");
+        botao.setAttribute("class", "btn");
+
+        divImagemDoProduto.appendChild(img);
+
+        divEstrelas.appendChild(imgEstrelas);
+
+        divSobreOProduto.appendChild(pnomeDoProduto);
+        divSobreOProduto.appendChild(divEstrelas);
+        divSobreOProduto.appendChild(ppreco);
+        divSobreOProduto.appendChild(pparcelado);
+        divSobreOProduto.appendChild(botao)
+
+        divCard.appendChild(divImagemDoProduto);
+        divCard.appendChild(divSobreOProduto);
+
+        produto.appendChild(divCard);
+    })
+}
+
+getProdutos()
