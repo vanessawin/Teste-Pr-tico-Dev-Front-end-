@@ -67,8 +67,7 @@ async function getProdutos() {
         ppreco.setAttribute("class", "preco");
         ppreco.innerText = `por R$ ${post.price}`,
 
-        pparcelado.setAttribute("id", "parcelado");
-        pparcelado.setAttribute("class", "parcelado");
+            pparcelado.setAttribute("class", "parcelado");
         pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
 
         botao.setAttribute("id", "btn");
@@ -93,3 +92,24 @@ async function getProdutos() {
 }
 
 getProdutos()
+
+
+
+
+//alterar o valor do carrinho
+// var bt = document.querySelector("#btn")
+// console.log(bt)
+// console.log(quantidadeAtual)
+
+// bt.addEventListener("click", function(){
+    
+//     var quantidadeAtual = document.querySelector("#quantidadeDeItens");
+// quantidadeAtual.textContent += 1
+// })
+
+
+
+
+
+
+
