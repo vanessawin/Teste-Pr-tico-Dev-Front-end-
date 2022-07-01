@@ -303,11 +303,11 @@ nav #carrinhoDeCompra p {
 }
 
 .parcelado {
-    font-family: 'Nunito';
+    /* font-family: 'Nunito'; */
     font-weight: 400;
     font-size: 11px;
     line-height: 15px;
-    color: #7A7A7A;
+    color: #0b0a0a;
     margin-bottom: 10px;
 }
 
