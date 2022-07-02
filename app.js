@@ -35,7 +35,7 @@ async function getProdutos() {
     console.log(data)
     //passar por cada elemento que veio da minha requisição
     data.map((post) => {
-
+        
         const divCard = document.createElement("div");
         const divImagemDoProduto = document.createElement("div");
         const img = document.createElement("img");
@@ -68,7 +68,7 @@ async function getProdutos() {
         ppreco.innerText = `por R$ ${post.price}`,
 
             pparcelado.setAttribute("class", "parcelado");
-        pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
+pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
 
         botao.setAttribute("id", "btn");
         botao.setAttribute("class", "btn");
@@ -96,17 +96,20 @@ getProdutos()
 
 
 
-//alterar o valor do carrinho
-// var bt = document.querySelector("#btn")
-// console.log(bt)
-// console.log(quantidadeAtual)
 
-// bt.addEventListener("click", function(){
-    
-//     var quantidadeAtual = document.querySelector("#quantidadeDeItens");
-// quantidadeAtual.textContent += 1
-// })
+                      
 
+// Função que pega a quantidade do carrinho e atualiza quando clica no botao de compra
+
+ var botao = document.querySelector("#btn");
+
+ botao.addEventListener("click", function()  {
+    var valorInicial = document.querySelector("#quantidadeDeItens").textContent
+    var atualizada = document.querySelector("#quantidadeDeItens")
+    valorInicial =  Number(valorInicial) + 1
+    atualizada.textContent = valorInicial
+   
+ })
 
 
 
