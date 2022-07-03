@@ -25,6 +25,7 @@ const url = "https://corebiz-test.herokuapp.com/api/v1/products"
 
 const produto = document.querySelector("#conteiner")
 
+
 async function getProdutos() {
     const response = await fetch(url)
 
@@ -35,18 +36,21 @@ async function getProdutos() {
     console.log(data)
     //passar por cada elemento que veio da minha requisição
     data.map((post) => {
-        
+
         const divCard = document.createElement("div");
         const divImagemDoProduto = document.createElement("div");
         const img = document.createElement("img");
+        const imagemPromoçao = document.createElement("img")
         const divSobreOProduto = document.createElement("div");
         const pnomeDoProduto = document.createElement("p");
         const divEstrelas = document.createElement("div");
         const imgEstrelas = document.createElement("img");
+
         const ppreco = document.createElement("p");
         const pparcelado = document.createElement("p");
         const botao = document.createElement("button");
 
+       
         divCard.setAttribute("class", "card");
         divCard.setAttribute("id", "card");
 
@@ -55,31 +59,63 @@ async function getProdutos() {
         img.setAttribute("class", "imagemDoProduto");
         img.setAttribute("src", post.imageUrl);
 
+        
+        
+        
+
         divSobreOProduto.setAttribute("class", "sobreOProduto");
 
         pnomeDoProduto.setAttribute("class", "nomeDoProduto");
         pnomeDoProduto.innerText = post.productName;
 
         divEstrelas.setAttribute("class", "estrelas");
+        
 
-        imgEstrelas.setAttribute = ("id", post.stars)
+        imgEstrelas.src =("/img/svg/starV.svg")
+
+
+
         ppreco.setAttribute("id", "preco");
         ppreco.setAttribute("class", "preco");
         ppreco.innerText = `por R$ ${post.price}`,
 
-            pparcelado.setAttribute("class", "parcelado");
-pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
+        pparcelado.setAttribute("class", "parcelado");
+        pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
 
         botao.setAttribute("id", "btn");
         botao.setAttribute("class", "btn");
         botao.innerText = " Comprar "
 
-        divImagemDoProduto.appendChild(img);
 
+
+
+        divImagemDoProduto.appendChild(img);
+        divImagemDoProduto.appendChild(imagemPromoçao)
         divEstrelas.appendChild(imgEstrelas);
 
         divSobreOProduto.appendChild(pnomeDoProduto);
         divSobreOProduto.appendChild(divEstrelas);
+
+        // Verificando se tem Promoção
+
+        const promocao = post.listPrice
+        //se nao tiver promoção
+        if(promocao === null){
+        console.log("nao tem promoçao")
+        }
+        //se tiver promoção
+        else {
+            //coloque o id e a image
+            imagemPromoçao.setAttribute("id", "imagemPromoçao")
+            imagemPromoçao.src = ("/img/Flag.png")
+
+            const precoPromocao = document.createElement("p")
+
+            precoPromocao.setAttribute("id", "precoPromocao")
+            precoPromocao.innerText = `de R$ ${post.listPrice} `
+            divSobreOProduto.appendChild(precoPromocao)
+
+        }
         divSobreOProduto.appendChild(ppreco);
         divSobreOProduto.appendChild(pparcelado);
         divSobreOProduto.appendChild(botao)
@@ -95,21 +131,41 @@ getProdutos()
 
 
 
+//criando elemento p para adicionar a quantidade de iten
+const carrinhoDecompra = document.querySelector("#carrinhoDeCompra")
+const carrinho = document.createElement("p");
 
+carrinho.setAttribute("id", "quantidadeDeItens")
+carrinho.textContent = 4
+carrinhoDecompra.appendChild(carrinho)
 
-                      
-
-// Função que pega a quantidade do carrinho e atualiza quando clica no botao de compra
-
+//Funçao click para adicionar item ao carrinho 
+//Essa função esta pegando somente para o botao criado no html e nao no card construido dinamicamente
  var botao = document.querySelector("#btn");
+ var productInfo = document.querySelector("#quantidadeDeItens")
+ let productInfoValue = document.querySelector("#quantidadeDeItens").textContent
 
- botao.addEventListener("click", function()  {
-    var valorInicial = document.querySelector("#quantidadeDeItens").textContent
-    var atualizada = document.querySelector("#quantidadeDeItens")
-    valorInicial =  Number(valorInicial) + 1
-    atualizada.textContent = valorInicial
+ botao.addEventListener('click', () => {
+ productInfoValue = productInfo.textContent;
+ productInfoValue = Number(productInfoValue) + 1;
+    productInfo.textContent = productInfoValue
+})
+             
+
+
+
+     
+// que pega a quantidade do carrinho e atualiza quando clica no botao de compra
+
+//  var botao = document.querySelector("#btn");
+
+//  botao.addEventListener("click", function()  {
+//     var  valorInicial= document.querySelector("#quantidadeDeItens").textContent
+//     var atualizada = document.querySelector("#quantidadeDeItens")
+//     valorInicial =  Number(valorInicial) + 1
+//     atualizada.textContent = valorInicial
    
- })
+//  })
 
 
 
