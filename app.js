@@ -50,18 +50,19 @@ async function getProdutos() {
         const pparcelado = document.createElement("p");
         const botao = document.createElement("button");
 
-       
+
         divCard.setAttribute("class", "card");
         divCard.setAttribute("id", "card");
 
         divImagemDoProduto.setAttribute("id", "imagemDoProduto");
 
         img.setAttribute("class", "imagemDoProduto");
+        img.setAttribute("title", post.productName)
         img.setAttribute("src", post.imageUrl);
 
-        
-        
-        
+
+
+
 
         divSobreOProduto.setAttribute("class", "sobreOProduto");
 
@@ -71,7 +72,17 @@ async function getProdutos() {
         divEstrelas.setAttribute("class", "estrelas");
         
 
-        imgEstrelas.src =("/img/svg/starV.svg")
+        //tentando colocar quantidade de estrelas certas
+        const est = post.stars
+        if(est){
+            for(var i = 0; i < est; i++ ){
+
+                imgEstrelas.src = ("/img/svg/starV.svg")
+            }
+        }
+        console.log(est)
+
+        
 
 
 
@@ -79,20 +90,24 @@ async function getProdutos() {
         ppreco.setAttribute("class", "preco");
         ppreco.innerText = `por R$ ${post.price}`,
 
-        pparcelado.setAttribute("class", "parcelado");
-        pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
 
-        botao.setAttribute("id", "btn");
+            botao.setAttribute("id", "btn");
         botao.setAttribute("class", "btn");
         botao.innerText = " Comprar "
 
+        // Se tiver parcelas coloque a quantidade de parcelas mais o valor
+        if (post.installments[0]) {
+            pparcelado.setAttribute("class", "parcelado");
 
+            pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
+
+        } 
 
 
         divImagemDoProduto.appendChild(img);
         divImagemDoProduto.appendChild(imagemPromoçao)
         divEstrelas.appendChild(imgEstrelas);
-
+        
         divSobreOProduto.appendChild(pnomeDoProduto);
         divSobreOProduto.appendChild(divEstrelas);
 
@@ -100,8 +115,8 @@ async function getProdutos() {
 
         const promocao = post.listPrice
         //se nao tiver promoção
-        if(promocao === null){
-        console.log("nao tem promoçao")
+        if (promocao === null) {
+            console.log("nao tem promoçao")
         }
         //se tiver promoção
         else {
@@ -141,34 +156,30 @@ carrinhoDecompra.appendChild(carrinho)
 
 //Funçao click para adicionar item ao carrinho 
 //Essa função esta pegando somente para o botao criado no html e nao no card construido dinamicamente
- var botao = document.querySelector("#btn");
- var productInfo = document.querySelector("#quantidadeDeItens")
- let productInfoValue = document.querySelector("#quantidadeDeItens").textContent
+var botao = document.querySelector("#btn");
+var productInfo = document.querySelector("#quantidadeDeItens")
+let productInfoValue = document.querySelector("#quantidadeDeItens").textContent
 
- botao.addEventListener('click', () => {
- productInfoValue = productInfo.textContent;
- productInfoValue = Number(productInfoValue) + 1;
+botao.addEventListener('click', () => {
+    productInfoValue = productInfo.textContent;
+    productInfoValue = Number(productInfoValue) + 1;
     productInfo.textContent = productInfoValue
 })
-             
-
-
-
-     
-// que pega a quantidade do carrinho e atualiza quando clica no botao de compra
-
-//  var botao = document.querySelector("#btn");
-
-//  botao.addEventListener("click", function()  {
-//     var  valorInicial= document.querySelector("#quantidadeDeItens").textContent
-//     var atualizada = document.querySelector("#quantidadeDeItens")
-//     valorInicial =  Number(valorInicial) + 1
-//     atualizada.textContent = valorInicial
-   
-//  })
 
 
 
 
+//Validação de formulario
 
 
+
+// function cadastroUsuario() {
+//     event.preventDefault()
+//     url = https://corebiz-test.herokuapp.com/api/v1/newsletter
+
+//     let nome = document.getElementById("#userName")
+//     let email = document.getElementById("#userEmail")
+//     console.log(nome)
+//     console.log(email)
+// }
+// cadastroUsuario()
