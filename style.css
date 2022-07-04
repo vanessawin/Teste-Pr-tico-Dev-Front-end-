@@ -272,7 +272,6 @@ nav #carrinhoDeCompra p {
     flex-direction: column;
     width: 100%;
     height: 550px;
-    border: solid 1px black;
 }
 @media(max-width: 412px) {
     #produtos {
