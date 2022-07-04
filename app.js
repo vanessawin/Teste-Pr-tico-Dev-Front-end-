@@ -59,7 +59,7 @@ async function getProdutos() {
             productInfoValue = Number(productInfoValue) + 1;
             productInfo.textContent = productInfoValue
         })
- 
+
         divCard.setAttribute("class", "card");
         divCard.setAttribute("id", "card");
 
@@ -130,7 +130,7 @@ async function getProdutos() {
             precoPromocao.innerText = `de R$ ${post.listPrice} `
             divSobreOProduto.appendChild(precoPromocao)
         }
-        
+
         divSobreOProduto.appendChild(ppreco);
         divSobreOProduto.appendChild(pparcelado);
         divSobreOProduto.appendChild(botao)
@@ -155,14 +155,14 @@ const init = () => {
     const submitButon = document.querySelector('.login-submit');
     console.log(userName, userEmail, submitButon)
 
-    
+
 
     if (submitButon) {
         submitButon.addEventListener('click', (event) => {
             event.preventDefault()
 
             fetch("https://corebiz-test.herokuapp.com/api/v1/newsletter", {
-                method:'POST',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -170,11 +170,12 @@ const init = () => {
                     email: userEmail.value,
                     name: userName.value,
                 })
-            }).then((response) =>{
+            }).then((response) => {
                 return response.json();
             })
-            
+
         })
     }
 }
 window.onload = init
+
