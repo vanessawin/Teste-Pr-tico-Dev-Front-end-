@@ -25,6 +25,10 @@ const url = "https://corebiz-test.herokuapp.com/api/v1/products"
 
 const produto = document.querySelector("#conteiner")
 
+var botoes = document.querySelector("#btn");
+var productInfo = document.querySelector("#quantidadeDeItens")
+let productInfoValue = document.querySelector("#quantidadeDeItens").textContent
+
 
 async function getProdutos() {
     const response = await fetch(url)
@@ -48,9 +52,14 @@ async function getProdutos() {
 
         const ppreco = document.createElement("p");
         const pparcelado = document.createElement("p");
+
         const botao = document.createElement("button");
-
-
+        botao.addEventListener('click', () => {
+            productInfoValue = productInfo.textContent;
+            productInfoValue = Number(productInfoValue) + 1;
+            productInfo.textContent = productInfoValue
+        })
+ 
         divCard.setAttribute("class", "card");
         divCard.setAttribute("id", "card");
 
@@ -70,21 +79,17 @@ async function getProdutos() {
         pnomeDoProduto.innerText = post.productName;
 
         divEstrelas.setAttribute("class", "estrelas");
-        
+
 
         //tentando colocar quantidade de estrelas certas
         const est = post.stars
-        if(est){
-            for(var i = 0; i < est; i++ ){
+        if (est) {
+            for (var i = 0; i < est; i++) {
 
                 imgEstrelas.src = ("/img/svg/starV.svg")
             }
         }
         console.log(est)
-
-        
-
-
 
         ppreco.setAttribute("id", "preco");
         ppreco.setAttribute("class", "preco");
@@ -101,13 +106,13 @@ async function getProdutos() {
 
             pparcelado.innerText = `ou em ${post.installments[0].quantity}x de R$ ${post.installments[0].value}`;
 
-        } 
+        }
 
 
         divImagemDoProduto.appendChild(img);
         divImagemDoProduto.appendChild(imagemPromoçao)
         divEstrelas.appendChild(imgEstrelas);
-        
+
         divSobreOProduto.appendChild(pnomeDoProduto);
         divSobreOProduto.appendChild(divEstrelas);
 
@@ -115,12 +120,7 @@ async function getProdutos() {
 
         const promocao = post.listPrice
         //se nao tiver promoção
-        if (promocao === null) {
-            console.log("nao tem promoçao")
-        }
-        //se tiver promoção
-        else {
-            //coloque o id e a image
+        if (promocao) {
             imagemPromoçao.setAttribute("id", "imagemPromoçao")
             imagemPromoçao.src = ("/img/Flag.png")
 
@@ -129,8 +129,8 @@ async function getProdutos() {
             precoPromocao.setAttribute("id", "precoPromocao")
             precoPromocao.innerText = `de R$ ${post.listPrice} `
             divSobreOProduto.appendChild(precoPromocao)
-
         }
+        
         divSobreOProduto.appendChild(ppreco);
         divSobreOProduto.appendChild(pparcelado);
         divSobreOProduto.appendChild(botao)
@@ -146,40 +146,35 @@ getProdutos()
 
 
 
-//criando elemento p para adicionar a quantidade de iten
-const carrinhoDecompra = document.querySelector("#carrinhoDeCompra")
-const carrinho = document.createElement("p");
-
-carrinho.setAttribute("id", "quantidadeDeItens")
-carrinho.textContent = 4
-carrinhoDecompra.appendChild(carrinho)
-
-//Funçao click para adicionar item ao carrinho 
-//Essa função esta pegando somente para o botao criado no html e nao no card construido dinamicamente
-var botao = document.querySelector("#btn");
-var productInfo = document.querySelector("#quantidadeDeItens")
-let productInfoValue = document.querySelector("#quantidadeDeItens").textContent
-
-botao.addEventListener('click', () => {
-    productInfoValue = productInfo.textContent;
-    productInfoValue = Number(productInfoValue) + 1;
-    productInfo.textContent = productInfoValue
-})
+//Validação de formulario e envio de formulario
 
 
+const init = () => {
+    const userName = document.querySelector('input[type="text"]');
+    const userEmail = document.querySelector('input[type="email"]');
+    const submitButon = document.querySelector('.login-submit');
+    console.log(userName, userEmail, submitButon)
 
+    
 
-//Validação de formulario
+    if (submitButon) {
+        submitButon.addEventListener('click', (event) => {
+            event.preventDefault()
 
-
-
-// function cadastroUsuario() {
-//     event.preventDefault()
-//     url = https://corebiz-test.herokuapp.com/api/v1/newsletter
-
-//     let nome = document.getElementById("#userName")
-//     let email = document.getElementById("#userEmail")
-//     console.log(nome)
-//     console.log(email)
-// }
-// cadastroUsuario()
+            fetch("https://corebiz-test.herokuapp.com/api/v1/newsletter", {
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: userEmail.value,
+                    name: userName.value,
+                })
+            }).then((response) =>{
+                return response.json();
+            })
+            
+        })
+    }
+}
+window.onload = init
